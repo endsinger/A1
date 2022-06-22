@@ -9,27 +9,32 @@ namespace ConsoleApp3
     [Serializable]
     class Fish
     {
-        private string name;
-        private int _long;
-        private int weight;
-        private string color;
-        //public Fish()
-        //{
-        //    Console.WriteLine("Имя " + name + "Длина " + _long + "Вес " + weight + "Цвет " + color);
-        //}
-
-        public void Characters(string _name, int __long, int _weight, string _color)
+        
+        
+        public static void GeneratorFish()
         {
-            name = _name;
-            _long = __long;
-            weight = _weight;
-            color = _color;
+            for (byte i=1; i<=10; i++)
+            {
+                // Console.WriteLine("Объект номер: " + i);
+                string[] words1 = { "карась", "щука", "акула", "рыба-мечь", "дельфин", "семга", "мойва", "сайга", "окунь", "пиранья", "кит", "селедка" }; // массив 1
 
+                string[] words2 = { "белый", "красный", "свежий", "тухлый", "зеленый", "большой", "маленький", "красивый" }; // массив 2
+                try // проверка на ошибку
+                {
+                    string word1 = words1[new Random().Next(1, words1.Length)]; // рандомное слово из масива 1
+                    string word2 = words2[new Random().Next(-1, words2.Length)]; // рандомное слово из 2 массива
+                    Console.WriteLine(word1 + " " + word2 + " "); // соеденение 2 слов
+                }
+                catch
+                {
+                    Console.WriteLine("Error");
+                }
+            }
         }
-        public void Print()
+        public static void Print()
         {
-            Console.WriteLine("Имя " + name +"Длина "+ _long + "Вес " + weight +"Цвет " + color );
+            Console.WriteLine("Генератов рандомной рыбы");
         }
-    
+
     }
 }
